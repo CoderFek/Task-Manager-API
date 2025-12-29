@@ -5,7 +5,7 @@ from app.db.database import create_db_and_session
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    create_db_and_session
+    create_db_and_session()
     yield
 
 app = FastAPI(title="Simple Task Manager API",

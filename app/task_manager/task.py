@@ -5,8 +5,8 @@ from app.db.models import DBtask
 
 
 
-def create_task(session: Session, task_in: TaskCreate) -> DBtask:
-    db_task = DBtask.model_validate(task_in)
+def create_task(session: Session, task_in: TaskCreate, owner_id: int) -> DBtask:
+    db_task = DBtask.model_validate(**task_in.model_dump(), owner_id=owner_id)
     session.add(db_task)
     session.commit()
     session.refresh(db_task)

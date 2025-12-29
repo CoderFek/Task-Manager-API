@@ -18,4 +18,4 @@ class Task(BaseModel):
     completed: bool = False
 
     class Config:
-        from_attributes = True       # task.id and not task['id]
+        from_attributes = True       # task.id and not task['id']
